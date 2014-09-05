@@ -1,8 +1,6 @@
 # Hubot: hubot-github-repo-event-notifier
 
-Notifies about any available GitHub repo event via webhook.
-
-See [`src/github-repo-event-notifier.coffee`](src/github-repo-event-notifier.coffee) for full documentation.
+Notifies hubot about any available GitHub repo event
 
 ## Installation
 
@@ -23,19 +21,18 @@ Add **hubot-github-repo-event-notifier** to your `external-scripts.json`:
 ["hubot-github-repo-event-notifier"]
 ```
 
-Run `npm install`
+## Configuration:
 
-## Development Testing
+* Prepare a dictionary with those fields:
+* * user: who did githut action
+* * action: [created|deleted|pushed]
+* * repository: github repository
+* * branch: github branch
+* * head_commit: url with last commit (head)
+* * message: message related to last commit
+* Post data to: <HUBOT_URL>:<PORT>/hubot/gh-repo-events[?room=<room>]
+    (Don't forget to urlencode the room name, especially for IRC. Hint: # = %23)
 
-Ideally, you'd write tests and put them in our `test/` directory.
+Enjoy this message in your hubot!
 
-If you just want to mess around with some things, we've bundled a REPL for
-you which has some fixture data and exposes the core functionality of the
-processing of events. To boot up the reply, launch `script/console`.
-
-* Sample payloads are available via the variable `eventPayloads`. It
-  contains a key for each event type, e.g. `pull_request` or `page_build`.
-* Each processing function is available via `actions`. This object contains
-  a key for each event type, e.g. `pull_request` or `page_build`. It takes
-  the payload object and the callback function as its parameters, in that
-  order.
+**URLS: POST /hubot/gh-repo-events?room=<room>**
