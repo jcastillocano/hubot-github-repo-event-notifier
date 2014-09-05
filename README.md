@@ -23,14 +23,14 @@ Add **hubot-github-repo-event-notifier** to your `external-scripts.json`:
 
 ## Configuration:
 
-* Prepare a dictionary with those fields:
-* * user: who did githut action
-* * action: [created|deleted|pushed]
-* * repository: github repository
-* * branch: github branch
-* * head_commit: url with last commit (head)
-* * message: message related to last commit
-* Post data to: <HUBOT_URL>:<PORT>/hubot/gh-repo-events[?room=<room>]
+1. Prepare a dictionary with those fields:
+ * user: who did githut action
+ * action: [created|deleted|pushed]
+ * repository: github repository
+ * branch: github branch
+ * head_commit: url with last commit (head)
+ * message: message related to last commit
+2. Post data to: <HUBOT_URL>:<PORT>/hubot/gh-repo-events[?room=<room>]
     (Don't forget to urlencode the room name, especially for IRC. Hint: # = %23)
 
 Enjoy this message in your hubot!
